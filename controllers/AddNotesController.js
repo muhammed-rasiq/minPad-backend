@@ -7,15 +7,15 @@ exports.addNotes = async(req,res)=>{
 
      const {NoteTitle,Category,Note,Tags}=req.body
 
-     const shareNote = await usersNotes({NoteTitle,Category,Note,Tags})
+     const shareNote = new usersNotes({NoteTitle,Category,Note,Tags})
 
      await shareNote.save()
 
-     res.status()
+     res.status(201).json(shareNote)
 
         
     } catch (error) {
-        
+        res.status(400).json({message:'error in addNotes',error:error.message})
     }
     
 }

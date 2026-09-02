@@ -1,8 +1,12 @@
 const express = require('express')
 const dbConnect = require('./config/db')
+const router = require('./router/route')
 
 
 const app = express()
+
+app.use(express.json())
+app.use(router)
 
 dbConnect()
 
