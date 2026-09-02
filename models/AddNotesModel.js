@@ -15,7 +15,7 @@ const addNotesSchema = new mongoose.Schema({
     },
     Tags:{
         type:String,
-        required:true
+        required:false
     }
 })
 
