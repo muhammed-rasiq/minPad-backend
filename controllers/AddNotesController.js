@@ -19,3 +19,13 @@ exports.addNotes = async(req,res)=>{
     }
     
 }
+
+exports.getAllNotes = async(req,res)=>{
+
+    try {
+        const getNotes = await usersNotes.find()
+        res.status(200).json(getNotes)
+    } catch (error) {
+        res.status(500).json({message:"error in get all notes",error:error.message})
+    }
+}

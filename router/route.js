@@ -3,5 +3,6 @@ const AddNotesController = require('../controllers/AddNotesController')
 const router = express.Router()
 
 router.post('/api/addNotes',AddNotesController.addNotes)
+router.get('/api/getAllNotes',AddNotesController.getAllNotes)
 
 module.exports = router;
