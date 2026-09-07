@@ -29,3 +29,19 @@ exports.getAllNotes = async(req,res)=>{
         res.status(500).json({message:"error in get all notes",error:error.message})
     }
 }
+
+exports.updateNote = async(req,res)=>{
+
+    try {
+        const {NoteTitle,Category,Note,Tags,id}=req.body
+
+        const update = await usersNotes.findByIdAndUpdate(id,{NoteTitle,Category,Note,Tags})
+        await update.save()
+        
+        res.status(201).json(update)
+        
+    } catch (error) {
+        res.status(500).json({message:'error in updateNote',error:error.message})
+    }
+
+}
