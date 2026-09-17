@@ -35,8 +35,8 @@ exports.updateNote = async(req,res)=>{
     try {
         const {NoteTitle,Category,Note,Tags,id}=req.body
 
-        const update = await usersNotes.findByIdAndUpdate(id,{NoteTitle,Category,Note,Tags})
-        await update.save()
+        const update = await usersNotes.findByIdAndUpdate(id,{NoteTitle,Category,Note,Tags}, { new: true })
+       
         
         res.status(201).json(update)
         
