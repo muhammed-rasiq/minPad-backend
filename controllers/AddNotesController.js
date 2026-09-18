@@ -45,3 +45,14 @@ exports.updateNote = async(req,res)=>{
     }
 
 }
+
+exports.deleteNote = async(req,res)=>{
+
+    try {
+        const {id}=req.body
+        const deleNote = await usersNotes.findByIdAndDelete(id)
+        res.status(200).json({message:'successfully delted Note',deleNote})
+    } catch (error) {
+        res.status(501).json({message:'error in delete Note ',error:error.message})
+    }
+}
